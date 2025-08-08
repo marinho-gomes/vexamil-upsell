@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+    .description {
+        transition: 0.5s;
+        height: 0px;
+        overflow: hidden;
+    }
+    .description-on {
+        padding: 20px;
+        position: relative;
+        height: auto;
+        top: 0px;
+        height: 180px;
+        animation: showDescriptionOn 0.5s linear;
+    }
+    @keyframes showDescriptionOn {
+        0% {
+            height: 0px;
+        }
+        100% {
+            height: 180px;
+        }
+    }
+    </style>
+    <title>Contact</title>
+</head>
+<body class="flex justify-center">
+    <div class="max-w-[800px] flex flex-col gap-10 p-5">
+        
+        <span class="text-[50px] font-bold text-center">How to Get in Touch with Us</span>
+        <span>Do you have any questions? Please do not hesitate to contact us directly. Our team will get in touch with you within hours to assist you.</span>
+        
+        <table class="border-2 border-[gray]">
+            <tr>
+                <td class="p-5 pl-10">Email Support</td>
+                <td>support@meltdrops.info</td>
+            </tr>
+            <tr>
+                <td class="p-5 pl-10">Order Email Support</td>
+                <td>support@meltdrops.info</td>
+            </tr>
+        </table>
+        
+        <span>* Every email or phone call is handled by our friendly customer support agents, and they will respond to you as soon as possible.</span>
+
+        <span class="text-[20px] font-bold text-center mt-[100px]">MeltDrops Q&A</span>
+        <span class="text-[50px] font-bold text-center">FREQUENTLY ASKED QUESTIONS</span>
+
+        <div class="w-full shadow-2xl" id="faq-accordion">
+            <div class="flex flex-col">
+                <button onclick="showDescription(1)" class="p-5 font-bold uppercase text-[20px] border-b-2 border-t-2 border-[lightgray] text-left">
+                    Is MeltDrops right for me?
+                </button>
+                <span id="description-1" class="description">
+                    MeltDrops is a natural formula developed to support healthy weight loss. It is made with plant-based ingredients and essential nutrients that help boost metabolism and fat burning while providing energy and supporting digestion.
+                </span>
+            </div>
+            <div class="flex flex-col">
+                <button onclick="showDescription(2)" class="p-5 font-bold uppercase text-[20px] border-b-2 border-t-2 border-[lightgray] text-left">
+                    What results can I expect from MeltDrops?
+                </button>
+                <span id="description-2" class="description">
+                    Most users report experiencing increased energy and appetite control in the first few weeks. For optimal results, it is recommended to take MeltDrops consistently for at least three months while maintaining a balanced diet and active lifestyle.
+                </span>
+            </div>
+            <div class="flex flex-col">
+                <button onclick="showDescription(3)" class="p-5 font-bold uppercase text-[20px] border-b-2 border-t-2 border-[lightgray] text-left">
+                    How long will it take to see results?
+                </button>
+                <span id="description-3" class="description">
+                    Individual results vary, but many users notice a difference in energy and digestion within the first few weeks. Significant weight loss results are typically seen after consistent use for 3 to 6 months.
+                </span>
+            </div>
+            <div class="flex flex-col">
+                <button onclick="showDescription(4)" class="p-5 font-bold uppercase text-[20px] border-b-2 border-t-2 border-[lightgray] text-left">
+                    What is the best way to take MeltDrops?
+                </button>
+                <span id="description-4" class="description">
+                    Take two MeltDrops capsules every morning with a glass of water before breakfast. Consistency is key for optimal results.
+                </span>
+            </div>
+            <div class="flex flex-col">
+                <button onclick="showDescription(5)" class="p-5 font-bold uppercase text-[20px] border-b-2 border-t-2 border-[lightgray] text-left">
+                    What if MeltDrops doesn't work for me?
+                </button>
+                <span id="description-5" class="description">
+                    We want you to be fully satisfied with your purchase. That's why MeltDrops comes with a 60-day money-back guarantee. If you're not happy with the results, simply contact us for a full refund.
+                </span>
+            </div>
+            <div class="flex flex-col">
+                <button onclick="showDescription(6)" class="p-5 font-bold uppercase text-[20px] border-b-2 border-t-2 border-[lightgray] text-left">
+                    Where can I buy MeltDrops and how quickly can I get it?
+                </button>
+                <span id="description-6" class="description">
+                    MeltDrops is only available on the official website to ensure quality and authenticity. Once you place your order, we process and ship it within 24 hours. Delivery usually takes between 5 to 10 days.
+                </span>
+            </div>
+            <div class="flex flex-col">
+                <button onclick="showDescription(7)" class="p-5 font-bold uppercase text-[20px] border-b-2 border-t-2 border-[lightgray] text-left">
+                    Is my purchase secure? How many times will my card be charged?
+                </button>
+                <span id="description-7" class="description">
+                    Your purchase is completely secure, and you will only be charged once when placing your order. No hidden fees or recurring charges.
+                </span>
+            </div>
+        </div>
+
+        <span class="text-center text-[gray]">
+            The information on this website has not been evaluated by the Food and Drug Administration. These products are not intended to diagnose, treat, cure, or prevent any disease.
+        </span>
+        <span class="text-center text-[gray]">
+            © Research 2025 All Rights Reserved.
+        </span>
+    </div>
+
+    <script is:raw>
+        document.addEventListener('DOMContentLoaded', function () {
+            function showDescription(id) {
+                const currentDescription = document.getElementById(`description-${id}`)
+                if(currentDescription.classList.contains('description-on')) {
+                    currentDescription.classList.remove('description-on')
+                    return;
+                }
+                for (const description of document.querySelectorAll('.description')) {
+                    description.classList.remove('description-on')
+                }
+                currentDescription.classList.add("description-on")
+            }
+            // Attach to window so inline onclick works
+            window.showDescription = showDescription;
+        });
+    </script>
+</body>
+</html>
